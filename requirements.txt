@@ -1,0 +1,3 @@
+pyrogram
+redis
+feedparser
