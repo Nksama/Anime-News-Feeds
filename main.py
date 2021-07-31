@@ -33,7 +33,7 @@ async def getnews():
             feedx = feeds.entries[0].title_detail
             prev = r.get("LATEST") or ""        
             
-            if feedx.base != prev:
+            if link_ != prev:
                 await bot.send_message(config.chat , f"**{feedx.value}**" , 
                 reply_markup=InlineKeyboardMarkup(
                     [
