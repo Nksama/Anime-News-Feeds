@@ -43,6 +43,6 @@ async def getnews():
                 ))
 
                 r.set("LATEST" , link_)
-                time.sleep(1800)
+                time.sleep(300)
 
 bot.run(getnews())
