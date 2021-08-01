@@ -1,3 +1,4 @@
+from os import link
 import time
 from pyrogram.types.bots_and_keyboards.inline_keyboard_button import InlineKeyboardButton
 from pyrogram.types.bots_and_keyboards.inline_keyboard_markup import InlineKeyboardMarkup
@@ -29,12 +30,13 @@ async def getnews():
             "https://www.animenewsnetwork.com/all/atom.xml?ann-edition=us"
             )
             link_ = feeds.entries[0]['link']
+            summary = feeds.entries[0]['summary']
 
             feedx = feeds.entries[0].title_detail
             prev = r.get("LATEST") or ""        
             
             if link_ != prev:
-                await bot.send_message(config.chat , f"**{feedx.value}**" , 
+                await bot.send_message(config.chat , f"**{feedx.value}**\n\n{summary}" , 
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [InlineKeyboardButton("More Info" , url=link_)],
